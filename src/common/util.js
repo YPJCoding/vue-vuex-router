@@ -345,3 +345,12 @@ export const splitJointUrl = (parameter) => {
   }
   return url;
 }
+/**
+ * 封装async/await const [err, res] = await AsyncTo(Func());
+ * @param promise
+ * @returns {Promise}
+ * @constructor
+ */
+export const AsyncTo = (promise) => {
+  return promise.then(data => [null, data]).catch(err => [err]);
+}
